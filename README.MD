@@ -29,6 +29,18 @@ matplotlib>=3.4.3
 statsmodels>=0.13.0
 ```
 
+### 2.3 Weight Calculation Methodology
+The ensemble weights are calculated using the following steps:
+
+1. **Non-linear Transformation:**
+    $$\text{Metric Weight} = \frac{e^{\text{Metric Value}}}{2}$$
+
+2. **Combined Weight:**
+    $$\text{Combined Weight}_i = 0.4 \times \text{Accuracy Weight}_i + 0.3 \times \text{ROC Weight}_i + 0.3 \times \text{F1 Weight}_i$$
+
+3. **Normalized Weight:**
+    $$\text{Normalized Weight}_i = \frac{\text{Combined Weight}_i}{\sum \text{Combined Weights}}$$
+
 ## 3. Project Architecture
 ```
 heart-disease-prediction/
